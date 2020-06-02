@@ -1,0 +1,28 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: service-provider
+
+  datasource:
+    url: jdbc:mysql://mysql.aderi.com:3306/ports-aderi?useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true
+    username: aderi
+    password: aderi
+    driver-class-name: com.mysql.jdbc.Driver
+    maximum-pool-size: 10
+    max-idle: 3
+    min-idle: 1
+    initial-size: 5
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        ddl-auto: none
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
